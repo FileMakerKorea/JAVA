@@ -14,3 +14,15 @@
 
 		return "forward:/WEB-INF/views/centerList.jsp";
 	}
+
+
+	@Override
+	public int getBloodTotalCount(String h_id, String c_id) {
+		
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		
+		paramMap.put("h_id", h_id);
+		paramMap.put("c_id", c_id);
+		
+		return (int) sqlSession.selectOne(NAME_SPACE + ".getBloodTotalCount", paramMap);
+	}
